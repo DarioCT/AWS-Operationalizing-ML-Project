@@ -11,3 +11,13 @@ ml.t2.xlarge is a suitable notebook instance for this project as it has suficien
 
 ![Alt text](images/2.2.png)
 
+The created notebook instance:
+
+![Alt text](images/2.3.png)
+
+Setting up a S3 Bucket for the project:
+
+![Alt text](images/3.png)
+
+
+![Alt text](images/4.png)
