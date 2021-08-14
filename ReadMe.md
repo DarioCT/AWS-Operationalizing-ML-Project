@@ -22,7 +22,27 @@ Coping data to the bucket:
 ![Alt text](images/5.png)
 
 Defininf an EC2 instance for training:
-![Alt text](images/6.png)
+`
+estimator = PyTorch(
+    entry_point="hpo.py",
+    base_job_name='pytorch_dog_hpo',
+    role=role,
+    framework_version="1.4.0",
+    instance_count=1,
+    instance_type="ml.m5.2xlarge",
+    py_version='py3'
+)
+
+tuner = HyperparameterTuner(
+    estimator,
+    objective_metric_name,
+    hyperparameter_ranges,
+    metric_definitions,
+    max_jobs=2,
+    max_parallel_jobs=2,
+    objective_type=objective_type
+)
+`
 
 ml.m5.2xlarge is a suitable training instance for this project as it has suficient memory form deep learning training and is still relatively cheap instance. It has 8 vCPU, 32 GiB and it costs $0.461 per hour. Other avaliable instances can be seen in the following table:
 ![Alt text](images/7.png)
